@@ -1,0 +1,81 @@
+{
+	"BigQuery Schema": [
+		{
+			"name": "EmployeeID",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "FirstName",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "LastName",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "Department",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "JobTitle",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "DateofBirth",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "EmailAddress",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "PhoneNumber",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "HireDate",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "Salary",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		},
+		{
+			"name": "Address",
+			"mode": "NULLABLE",
+			"type": "STRING",
+			"description": "",
+			"fields": []
+		}
+	]
+}
