@@ -1,0 +1,6 @@
+gcloud init --console-only
+gcloud auth login 
+
+
+bq query --use_legacy_sql=false "SELECT count(1) FROM `dataengineering-466011.titanic.titanic_data`;" 
+gcloud dataproc jobs submit pyspark E:\Study\VSCode_Codebase\GCP\PySpark\bq_data_load.py --cluster=dataproc-test --region=europe-west1
