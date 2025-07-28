@@ -1,7 +1,7 @@
 
 from pyspark.sql import SparkSession
-import zipfile
-from pyspark.sql.functions import col, unix_timestamp,to_date,avg,sum,min,max,count,month,current_date,year
+#import zipfile
+#from pyspark.sql.functions import col, unix_timestamp,to_date,avg,sum,min,max,count,month,current_date,year
 
 spark = SparkSession.builder \
     .appName("GCS_to_BQ") \
