@@ -1,6 +1,24 @@
+-----------deploying directly in dataproc
 gcloud init --console-only
 gcloud auth login 
 
 
 bq query --use_legacy_sql=false "SELECT count(1) FROM `dataengineering-466011.titanic.titanic_data`;" 
 gcloud dataproc jobs submit pyspark E:\Study\VSCode_Codebase\GCP\PySpark\bq_data_load.py --cluster=dataproc-test --region=europe-west1
+
+
+--------creating and deploying docker image
+
+gcloud auth login 
+gcloud auth configure-docker
+
+cd E:\Study\VSCode_Codebase\GCP\dataproc_demo
+docker build -t gcr.io/dataengineering-466011/gcs-to-bq-job .
+
+
+docker push gcr.io/dataengineering-466011/gcs-to-bq-job
+
+----------submitting dataproc job from image
+gcloud dataproc batches submit pyspark --project=dataengineering-466011 --region=your-region --container-image=gcr.io/europe-west1/gcs-to-bq-job --staging-bucket=sudip1507
+
+gcloud dataproc batches submit pyspark bq_data_load.py --project=dataengineering-466011 --region=europe-west1 --container-image=gcr.io/dataengineering-466011/gcs-to-bq-job:latest --staging-bucket=sudip1507 --deps-bucket=gs://sudip1507

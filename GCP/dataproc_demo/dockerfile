@@ -1,0 +1,8 @@
+FROM bitnami/spark:latest
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY bq_data_load.py ./app/
+
+ENTRYPOINT ["spark-submit", "bq_data_load.py"]
