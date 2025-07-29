@@ -21,4 +21,10 @@ docker push gcr.io/dataengineering-466011/gcs-to-bq-job
 ----------submitting dataproc job from image
 gcloud dataproc batches submit pyspark --project=dataengineering-466011 --region=your-region --container-image=gcr.io/europe-west1/gcs-to-bq-job --staging-bucket=sudip1507
 
-gcloud dataproc batches submit pyspark bq_data_load.py --project=dataengineering-466011 --region=europe-west1 --container-image=gcr.io/dataengineering-466011/gcs-to-bq-job:latest --staging-bucket=sudip1507 --deps-bucket=gs://sudip1507
+gcloud dataproc batches submit pyspark bq_data_load.py --project=dataengineering-466011 --region=europe-west1 --container-image=europe-west1-docker.pkg.dev/gcr.io/dataengineering-466011/gcs-to-bq-job:latest --staging-bucket=sudip1507 --deps-bucket=gs://sudip1507
+
+gcloud dataproc batches submit pyspark bq_data_load.py --project=dataengineering-466011 --region=europe-west1 --container-image=europe-west1-docker.pkg.dev/dataengineering-466011/my-dataproc-images/gcs-to-bq-job:latest  --staging-bucket=sudip1507 --deps-bucket=gs://sudip1507 --properties=spark.driver.cores=1,spark.executor.cores=1,spark.executor.instances=1
+
+
+europe-west1-docker.pkg.dev/dataengineering-466011/my-dataproc-images/gcs-to-bq-job:latest \
+  --staging-bucket=sudip1507 \
