@@ -1,2 +1,7 @@
-!dbt-env
-!logs
+# Ignore everything by default
+*
+
+# But do not ignore the Git folder and models/
+!.gitignore
+!my_dbt_project/
+!dbt_user.json
