@@ -1,0 +1,3 @@
+dbt_env/
+logs/
+*.json
