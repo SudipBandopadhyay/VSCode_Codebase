@@ -1,114 +1,68 @@
-from docx import Document
-from docx.shared import Pt
+from fpdf import FPDF
 
-def add_heading(doc, text, level=1):
-    doc.add_heading(text, level=level)
+class PDF(FPDF):
+    def header(self):
+        self.set_font("Arial", "B", 14)
+        self.cell(0, 10, "Cloud Data Warehouse Comparison: ACID & Analytics", ln=True, align="C")
+        self.ln(5)
 
-def add_bullets(doc, items):
-    for item in items:
-        doc.add_paragraph(item, style='List Bullet')
+    def chapter_title(self, title):
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, title, ln=True)
+        self.ln(2)
 
-doc = Document()
-style = doc.styles['Normal']
-font = style.font
-font.name = 'Calibri'
-font.size = Pt(11)
+    def chapter_body(self, text):
+        self.set_font("Arial", "", 10)
+        self.multi_cell(0, 6, text)
+        self.ln()
 
-# Header
-doc.add_heading('Sudip Bandopadhyay', 0)
-doc.add_paragraph(
-    'Lead/Senior Data Engineer (GCP/Azure) | Data Scientist\n'
-    'Whiteley, UK | +44 7747292241 | sudip.bandopadhyay23@gmail.com | '
-    'LinkedIn: linkedin.com/in/sudip-bandopadhyay-18918a61'
-)
+# Initialize PDF
+pdf = PDF()
+pdf.add_page()
 
-# Summary
-add_heading(doc, 'Professional Summary')
-doc.add_paragraph(
-    "Dynamic and accomplished Lead Data Engineer and Data Scientist with 14 years of experience delivering complex, large-scale data solutions across telecom and enterprise systems. "
-    "Proficient in cloud-native data architectures (GCP & Azure), big data processing, and advanced analytics. Proven track record in optimizing data pipelines, building scalable platforms, "
-    "and leading high-performing engineering teams. Recognized for reducing operational costs by up to 40% and enabling £7M+ business impact through strategic cloud migration, machine learning, and data warehousing solutions. "
-    "Strong leadership in mentoring engineers and driving data strategy across cross-functional teams."
-)
+# Section: Introduction
+intro = """
+This document compares leading cloud data warehouse platforms (BigQuery, Snowflake, Redshift, Databricks) 
+with a focus on ACID compliance, analytics performance, concurrency, and transaction handling.
+"""
 
-# Technical Skills
-add_heading(doc, 'Technical Skills')
-tech_skills = [
-    "Cloud Platforms: Google Cloud Platform (GCP), Microsoft Azure, Oracle Cloud Infrastructure (OCI)",
-    "Data Engineering & ETL Tools: Apache Airflow, Dataflow, Dataproc, Azure Data Factory, ODI, Informatica, DBT",
-    "Programming: Python, SQL, PL/SQL, PySpark, UNIX Shell Scripting",
-    "Data Warehousing: BigQuery, Snowflake, Oracle, SQL Server, PostgreSQL, Azure Synapse",
-    "Streaming & Messaging: Apache Kafka, Google Pub/Sub",
-    "Machine Learning & AI: TensorFlow, Keras, Scikit-learn, Vertex AI, Jupyter Notebooks, Pandas, NumPy",
-    "Containerization & CICD: Docker, Kubernetes, GitHub, GitLab, Azure DevOps",
-    "Reporting & Visualization: Looker, Matplotlib, Seaborn, Power BI",
-    "Project & Code Management: Jira, Confluence, Git, SVN",
-    "Architecture & Design: Star/Snowflake Schema, Data Lake, Data Mesh, Schema Design, Data Modeling",
-]
-add_bullets(doc, tech_skills)
+# Section: Comparison Table (ASCII only)
+comparison_table = """
+| Feature / Platform         | BigQuery              | Snowflake             | Redshift               | Databricks Delta Lake     |
+|---------------------------|-----------------------|------------------------|------------------------|----------------------------|
+| ACID Transactions         | Partial (single stmt) | Full (multi-stmt)     | Partial (with caveats) | Full (via Delta Lake)      |
+| Optimized For             | Analytics             | Analytics             | Analytics              | Analytics + ML             |
+| Storage Architecture      | Columnar, Serverless  | Micro-partitioned     | Columnar               | Parquet + Delta Format     |
+| Multi-statement Txns      | [X] Not supported      | [OK] Supported         | [!] Limited rollback    | [OK] Supported              |
+| Concurrency Handling      | High (auto-scaling)   | High (multi-cluster)  | Medium (scaling)       | High (with autoscaling)    |
+| Real-time Data Support    | Limited               | Moderate              | Limited                | [OK] Excellent             |
+| Frequent Updates/Deletes  | [X] Not ideal          | [OK] Efficient         | [!] Slower on deletes   | [OK] Excellent              |
+| ML Integration            | Basic (BQML)          | Via integrations      | SageMaker (AWS)        | [OK] Built-in (MLflow)     |
+| Pricing Model             | Query-based           | Per-second + storage  | Node-hour              | Compute + storage separate |
+"""
 
-# Certifications
-add_heading(doc, 'Certifications')
-certs = [
-    "Microsoft Certified: Fabric Data Engineer Associate – 06/2025",
-    "Google Cloud Certified: Professional Data Engineer – 04/2025",
-    "Microsoft Certified: Azure Data Scientist Associate – 06/2024",
-    "Oracle Cloud Infrastructure Foundations Associate – 07/2022",
-    "Oracle Data Integrator 12c Implementation Specialist – 08/2019",
-    "Oracle SOA Suite 11g Certified Implementation Specialist – 12/2016",
-    "Oracle Database 11g: SQL Fundamentals – 12/2015",
-]
-add_bullets(doc, certs)
+# Section: Summary
+summary = """
+[OK] = Recommended / supported well
+[X]  = Not supported
+[!]  = Limited or partially supported
 
-# Experience
-add_heading(doc, 'Professional Experience')
+Recommendations:
+- Use BigQuery for fast, cost-effective analytics and dashboards.
+- Use Snowflake for full ACID support and ease of use.
+- Use Redshift if you're in AWS and okay with manual tuning.
+- Use Databricks for unified analytics + ML with strong ACID support.
+"""
 
-doc.add_paragraph('Tata Consultancy Services — Lead Data Engineer | Data Scientist | Data Integration Specialist', style='Heading 2')
-doc.add_paragraph('Kolkata, India / Whiteley, UK | 07/2014 – 05/2025')
-tcs_bullets = [
-    "Led enterprise-wide migration of on-premise Oracle data warehouse to GCP BigQuery, reducing operating costs by 40% and enabling £5M+ in cost savings.",
-    "Built scalable ETL/ELT pipelines and automated orchestration using Airflow and Composer; optimized processing of petabyte-scale datasets.",
-    "Developed ML models (customer propensity, fraud detection) using Vertex AI, Pandas, Scikit-learn; generated £2M+ in business impact.",
-    "Created secure, production-ready data marts in BigQuery using DBT and optimized SQL logic for analytics use cases.",
-    "Designed integration solutions using Oracle Fusion Middleware, ODI, SOA Suite for ERP system sync.",
-    "Managed and mentored a 10-member engineering team with agile delivery practices.",
-    "Collaborated with stakeholders for requirements gathering and roadmap planning.",
-    "Received Best Performer of the Month (x2) and Best Team Award.",
-]
-add_bullets(doc, tcs_bullets)
+# Write content
+pdf.chapter_title("Overview")
+pdf.chapter_body(intro)
 
-doc.add_paragraph('Infosys Limited — ODI/ETL Developer', style='Heading 2')
-doc.add_paragraph('Chennai, India | 08/2011 – 07/2014')
-infosys_bullets = [
-    "Developed robust ETL pipelines using Oracle Data Integrator (ODI) for telecom clients, improving transformation efficiency by 25%.",
-    "Enhanced QA and release workflows, raising user satisfaction by 40%.",
-    "Supported post-deployment integration and operations."
-]
-add_bullets(doc, infosys_bullets)
+pdf.chapter_title("Comparison Matrix")
+pdf.chapter_body(comparison_table)
 
-# Data Science Projects
-add_heading(doc, 'Selected Data Science & AI Projects')
-ml_projects = [
-    "Customer Propensity Modeling: Supervised ML model boosted campaign targeting accuracy by 35% and delivered £2M+ in revenue.",
-    "Fraud Detection Engine: Built classification model to identify anomalous transactions, reducing false positives by 45%.",
-    "Chat Support Automation: NLP-based system cut ticket volume by 30% and improved customer support SLAs.",
-    "Data Quality Dashboard: Real-time data health monitoring using Looker, GCP Functions, and Python.",
-]
-add_bullets(doc, ml_projects)
+pdf.chapter_title("Summary & Recommendations")
+pdf.chapter_body(summary)
 
-# Education
-add_heading(doc, 'Education')
-doc.add_paragraph('Bachelor of Technology – Electrical Engineering')
-doc.add_paragraph('West Bengal University of Technology, India | 2011')
-
-# Additional Info
-add_heading(doc, 'Additional Information')
-extra = [
-    "Languages: English, Hindi, Bengali",
-    "Awards: Best Performer of the Month (twice), Best Team Award",
-    "Strengths: Strategic thinker, public speaker, fast learner, ready to travel globally",
-]
-add_bullets(doc, extra)
-
-doc.save("Sudip_Bandopadhyay_Resume_3Page.docx")
-print("Resume created successfully!")
+# Save the PDF
+pdf.output("cloud_dw_comparison_ascii_safe.pdf")

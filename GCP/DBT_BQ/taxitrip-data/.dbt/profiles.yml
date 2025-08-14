@@ -1,0 +1,10 @@
+taxitrip-data:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: C:\Users\sudyr\.dbt\dataengineering-466011-7749cef01f85.json
+      project: dataengineering-466011
+      dataset: taxitrip-data
+      threads: 16

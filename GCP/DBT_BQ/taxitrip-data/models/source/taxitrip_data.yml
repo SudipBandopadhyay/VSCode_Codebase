@@ -1,0 +1,69 @@
+models:
+  - name: taxitrip_data
+    description: New York taxi trip data.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "fare_amount + extra + mta_tax + tip_amount + tolls_amount + improvement_surcharge = total_amount"
+    columns:
+      - name: trip_id
+        description: Unique ID of each trip
+        data_tests:
+          - not_null
+          - unique
+      - name: vendorid
+        description: ID of the taxi vednor.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["Creative Mobile Technologies, LLC", "Curb Mobility, LLC","Myle Technologies Inc","Helix"]
+      - name: lpep_pickup_datetime
+        description: Pickup datetime.
+      - name: lpep_dropoff_datetime
+        description: Drop off datetime.
+      - name: store_and_fwd_flag
+        description: Forward flag
+      - name: ratecodeid
+        description: Rate codeID.
+      - name: pulocationid
+        description: Public location ID.
+      - name: dolocationid
+        description: driver location ID.
+      - name: passenger_count
+        description: Total number of passengers in that trip.
+      - name: trip_distance
+        description: Distance of the trip.
+      - name: fare_amount
+        description: Fare amount for the trip.
+      - name: extra
+        description: Extra fare for the trip.
+      - name: mta_tax
+        description: MTA tax for the trip
+      - name: tip_amount
+        description: Tip amount for teh trip
+      - name: tolls_amount
+        description: Tolls for the trip
+      - name: ehail_fee
+        description: EHAIL fee for the trip
+      - name: improvement_surcharge
+        description: Improvement surcharge for the trip
+      - name: total_amount
+        description: Total amount paid for the trip
+        data_tests:
+          - not_null
+      - name: payment_type
+        description: Payment type for the trip
+        data_tests:
+          - accepted_values:
+              values: ["Flex Fare trip", "Credit card","Cash","No charge","Dispute","Unknown","Voided trip"]
+      - name: trip_type
+        description: Trip type
+        data_tests:
+          - accepted_values:
+              values: ["Street-hail", "Dispatch"]
+      - name: congestion_surcharge
+        description: Congestion surcharge
+
+#        data_tests:
+#          - accepted_values:
+#              values: ["new", "returning"]
