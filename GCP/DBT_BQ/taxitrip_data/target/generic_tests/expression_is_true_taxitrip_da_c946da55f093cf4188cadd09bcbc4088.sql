@@ -1,0 +1,1 @@
+{{ dbt_utils.test_expression_is_true(expression="fare_amount + extra + mta_tax + tip_amount + tolls_amount + improvement_surcharge = total_amount", model=get_where_subquery(ref('taxitrip_data'))) }}

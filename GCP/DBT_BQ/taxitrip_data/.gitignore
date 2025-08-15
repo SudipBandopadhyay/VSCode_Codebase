@@ -1,4 +1,5 @@
-dbt_packages/
-dbt_internal_packages/
-logs/
-target/
+./dbt_packages/
+./dbt_internal_packages/
+./logs/
+./target/
+./profiles/*.json

@@ -1,0 +1,1 @@
+{{ test_unique(column_name="vendorid", model=get_where_subquery(ref('taxitrip_data'))) }}

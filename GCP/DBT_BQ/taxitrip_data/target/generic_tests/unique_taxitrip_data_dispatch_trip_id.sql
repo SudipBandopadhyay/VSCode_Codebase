@@ -1,0 +1,1 @@
+{{ test_unique(column_name="trip_id", model=get_where_subquery(ref('taxitrip_data_dispatch'))) }}

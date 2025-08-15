@@ -1,0 +1,20 @@
+dbt-fusion 2.0.0-beta.55
+   Loading ~/.dbt/profiles.yml
+   Loading packages.yml
+   Loading dbt_project.yml
+   Loading dbt_packages\dbt_utils\dbt_project.yml
+   Loading dbt_internal_packages\dbt-adapters\dbt_project.yml
+   Loading dbt_internal_packages\dbt-bigquery\dbt_project.yml
+ Rendering models\source\taxitrip_data.sql
+ Rendering models\staging\v_taxitrip_data.sql
+   Running models\source\taxitrip_data.sql
+ Rendering models\mart\taxitrip_data_street_hail.sql
+ Rendering models\mart\taxitrip_data_dispatch.sql
+   Success models\source\taxitrip_data.sql
+   Running models\staging\v_taxitrip_data.sql
+   Success models\staging\v_taxitrip_data.sql
+   Running models\mart\taxitrip_data_street_hail.sql
+   Running models\mart\taxitrip_data_dispatch.sql
+   Success models\mart\taxitrip_data_dispatch.sql
+   Success models\mart\taxitrip_data_street_hail.sql
+  Finished 'run' target 'dev' in 33s 618ms 277us 500ns

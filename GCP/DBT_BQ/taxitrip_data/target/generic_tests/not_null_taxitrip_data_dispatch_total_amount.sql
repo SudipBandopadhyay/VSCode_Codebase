@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="total_amount", model=get_where_subquery(ref('taxitrip_data_dispatch'))) }}
