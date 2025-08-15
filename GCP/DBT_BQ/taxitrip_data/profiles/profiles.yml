@@ -1,0 +1,14 @@
+taxitrip_data:
+  outputs:
+    dev:
+      dataset: taxitrip_data
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /app/sa_key.json
+      location: US
+      method: service-account
+      #priority: interactive
+      project: dataengineering-466011
+      threads: 4
+      type: bigquery
+  target: dev

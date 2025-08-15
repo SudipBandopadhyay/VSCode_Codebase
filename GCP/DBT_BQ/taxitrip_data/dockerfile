@@ -1,0 +1,29 @@
+FROM python:3.10-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Set work directory
+WORKDIR /app
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application and DBT project files
+COPY . .
+
+# Set up DBT profiles
+RUN mkdir -p /root/.dbt
+COPY profiles/profiles.yml /root/.dbt/profiles.yml
+
+# Optional: Copy GCP service account key if using BigQuery + service account
+COPY profiles/sa_key.json /app/sa_key.json
+
+# Run dbt job directly
+CMD ["dbt", "run"]
+

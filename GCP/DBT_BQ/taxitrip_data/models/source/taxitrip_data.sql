@@ -38,7 +38,7 @@ SELECT
     ELSE 'Invalid'
   END AS trip_type,
   congestion_surcharge
-  FROM taxitrip_data_raw 
+  FROM taxitrip_data.taxitrip_data_raw
   WHERE VendorID IS NOT NULL
   AND store_and_fwd_flag IS NOT NULL
   AND passenger_count IS NOT NULL
