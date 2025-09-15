@@ -1,2 +1,1 @@
-{{ config({}) }}
 {{ test_accepted_values(column_name="vendorid", model=get_where_subquery(ref('taxitrip_data')), values=["Creative Mobile Technologies, LLC","Curb Mobility, LLC","Myle Technologies Inc","Helix"]) }}
