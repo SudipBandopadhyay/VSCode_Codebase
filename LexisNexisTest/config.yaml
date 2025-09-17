@@ -1,0 +1,14 @@
+project:
+  id: dataengineering-466011
+  dataset: lexis_nexis_task
+
+tables:
+  bq_landing_table: exchange_rates_landing
+  bq_final_table: exchange_rates
+
+sources:
+  exchange_rates_url : https://api.exchangeratesapi.io/latest 
+  ecb_url: https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml
+
+logging:
+  level: INFO

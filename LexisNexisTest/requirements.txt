@@ -1,0 +1,9 @@
+# Data processing
+pandas==2.2.2
+requests==2.32.3
+pyyaml==6.0.2
+pyarrow
+
+# Google Cloud clients
+google-cloud-bigquery==3.25.0
+google-cloud-secret-manager==2.20.0

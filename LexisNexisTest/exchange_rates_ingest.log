@@ -1,0 +1,118 @@
+2025-09-16 09:26:11,089 exchange_rates_ingest INFO: Successfully loaded 202 record into landing table dataengineering-466011.lexis_nexis_task.exchange_rates_landing
+2025-09-16 09:26:14,533 exchange_rates_ingest INFO: Merge job successfully merged 0 record into final table dataengineering-466011.lexis_nexis_task.exchange_rates
+2025-09-16 10:37:38,785 exchange_rates_ingest INFO: Starting ingest job 31ab2c5c-a29c-43dc-bf2d-718c8dd77485
+2025-09-16 10:37:39,823 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 10:37:40,549 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 10:46:34,813 exchange_rates_ingest INFO: Starting ingest job 0f5f86e4-cc6e-4dab-8653-22074d9c953e
+2025-09-16 10:46:37,769 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 10:46:38,524 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 10:48:00,089 exchange_rates_ingest INFO: Starting ingest job 641321c2-8ac2-45df-baa6-7500b7bbb187
+2025-09-16 10:48:01,180 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 10:48:01,813 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 10:48:08,013 exchange_rates_ingest INFO: Successfully loaded 169 record into landing table dataengineering-466011.lexis_nexis_task.exchange_rates_landing
+2025-09-16 10:48:14,658 exchange_rates_ingest INFO: Merge job successfully merged 141 record into final table dataengineering-466011.lexis_nexis_task.exchange_rates
+2025-09-16 10:48:14,658 exchange_rates_ingest INFO: Ingest job finished: 641321c2-8ac2-45df-baa6-7500b7bbb187
+2025-09-16 15:57:20,983 grpc._plugin_wrapping ERROR: AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x0000026521D6D990>" raised exception!
+Traceback (most recent call last):
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x0000026521EFA990>: Failed to resolve 'oauth2.googleapis.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000026521EFA990>: Failed to resolve 'oauth2.googleapis.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\transport\requests.py", line 187, in __call__
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000026521EFA990>: Failed to resolve 'oauth2.googleapis.com' ([Errno 11001] getaddrinfo failed)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\grpc\_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\transport\grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\transport\grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\credentials.py", line 239, in before_request
+    self._blocking_refresh(request)
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\credentials.py", line 202, in _blocking_refresh
+    self.refresh(request)
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\oauth2\credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\oauth2\reauth.py", line 333, in refresh_grant
+    response_status_ok, response_data, retryable_error = _client._token_endpoint_request_no_throw(
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\oauth2\_client.py", line 192, in _token_endpoint_request_no_throw
+    response = request(
+               ^^^^^^^^
+  File "C:\Users\sudyr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\google\auth\transport\requests.py", line 194, in __call__
+    raise new_exc from caught_exc
+google.auth.exceptions.TransportError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000026521EFA990>: Failed to resolve 'oauth2.googleapis.com' ([Errno 11001] getaddrinfo failed)"))
+2025-09-16 16:01:54,719 exchange_rates_ingest INFO: Starting ingest job 0a4e1ad7-2f28-4b33-b3a1-9be2e39e8408
+2025-09-16 16:01:55,357 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 16:01:55,976 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 16:02:02,893 exchange_rates_ingest INFO: Successfully loaded 169 record into landing table dataengineering-466011.lexis_nexis_task.exchange_rates_landing
+2025-09-16 16:09:26,335 exchange_rates_ingest INFO: Starting ingest job 5fb6ccc6-0488-4803-8918-3a7788e128ea
+2025-09-16 16:09:27,208 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 16:09:27,688 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 16:09:33,851 exchange_rates_ingest INFO: Successfully loaded 169 record into landing table dataengineering-466011.lexis_nexis_task.exchange_rates_landing
+2025-09-16 16:09:40,358 exchange_rates_ingest INFO: Merge job successfully merged 0 record into final table dataengineering-466011.lexis_nexis_task.exchange_rates
+2025-09-16 16:09:40,358 exchange_rates_ingest INFO: Ingest job finished: 5fb6ccc6-0488-4803-8918-3a7788e128ea
+2025-09-16 16:32:56,729 exchange_rates_ingest INFO: Starting ingest job 3c2ed6ed-11a0-41e0-909c-eadc507fd807
+2025-09-16 16:32:57,808 exchange_rates_ingest INFO: Parsed ExchangeRates API data successfully: 172 records found.
+2025-09-16 16:32:58,421 exchange_rates_ingest INFO: Parsed ECB data successfully: 30 records found.
+2025-09-16 16:33:03,225 exchange_rates_ingest INFO: Successfully loaded 169 record into landing table dataengineering-466011.lexis_nexis_task.exchange_rates_landing
+2025-09-16 16:33:08,971 exchange_rates_ingest INFO: Merge job successfully merged 29 record into final table dataengineering-466011.lexis_nexis_task.exchange_rates
+2025-09-16 16:33:08,971 exchange_rates_ingest INFO: Ingest job finished: 3c2ed6ed-11a0-41e0-909c-eadc507fd807

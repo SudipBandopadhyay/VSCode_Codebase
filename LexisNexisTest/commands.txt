@@ -1,0 +1,22 @@
+gcloud artifacts repositories create exchange-rates `
+  --repository-format=docker `
+  --location=us-central1
+
+docker build -t us-central1-docker.pkg.dev/dataengineering-466011/exchange-rates/exchange-rates:latest .
+
+gcloud auth configure-docker us-central1-docker.pkg.dev
+
+docker push us-central1-docker.pkg.dev/dataengineering-466011/exchange-rates/exchange-rates:latest 
+
+gcloud run jobs create exchange-rates-ingestion-job `
+  --image us-central1-docker.pkg.dev/dataengineering-466011/exchange-rates/exchange-rates:latest `
+  --region us-central1 `
+  --service-account sudipb@dataengineering-466011.iam.gserviceaccount.com
+
+
+gcloud run jobs update exchange-rates-ingestion-job `
+  --image us-central1-docker.pkg.dev/dataengineering-466011/exchange-rates/exchange-rates:latest `
+  --region us-central1
+
+docker build --no-cache -t us-central1-docker.pkg.dev/dataengineering-466011/exchange-rates/exchange-rates:latest .
+
